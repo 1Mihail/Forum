@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Forum</title>
+    <asp:ContentPlaceHolder ID="stylesheet" runat="server">
+        <link rel="stylesheet" href="/css/Style.css" type="text/css" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header">
+            <h1 id="title">Forum</h1>
+            <div id="menu">
+                <ul>
+                    <li>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Index.aspx">Acasa</asp:HyperLink>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Search.aspx">Cauta</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="profilLink" runat="server" NavigateUrl="~/Profil.aspx">Profil</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="signUpLink" runat="server" NavigateUrl="~/SignUp.aspx">Inregistrare</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="administratorLink" runat="server" NavigateUrl="~/Administrator.aspx">Administrator</asp:HyperLink></li>
+                </ul>
+            </div>
+            <div id="logInBox" runat="server">
+                <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Parola" runat="server" TextMode="Password"></asp:TextBox>
+                <asp:Button ID="Autentifica" runat="server" Text="Autentifica-te" OnClick="Login_Click" />
+                <asp:Literal ID="Eroare" runat="server"></asp:Literal><br />
+            </div>
+            <div id="logOutBox" runat="server">
+                <asp:Label ID="logat" runat="server"></asp:Label><br />
+                <asp:LinkButton ID="deconectare" runat="server" OnClick="Logout_Click">Deconecteaza-te</asp:LinkButton>
+            </div>
+        </div>
+
+        <div>
+
+            <asp:ContentPlaceHolder ID="Content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <div id="footer">
+        Website developed by
+        <asp:HyperLink runat="server" NavigateUrl="http://mihailproductions.com/">MihailProductions</asp:HyperLink>
+    </div>
+</body>
+</html>
